@@ -1,0 +1,35 @@
+{
+  "name": "zoomapp",
+  "version": "1.0.0",
+  "description": "Zoom Clone using WebRTC and Websockets",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.9",
+    "@babel/core": "^7.18.9",
+    "@babel/node": "^7.18.9",
+    "@babel/preset-env": "^7.18.9"
+  },
+  "dependencies": {
+    "@socket.io/admin-ui": "^0.4.0",
+    "express": "^4.18.1",
+    "localtunnel": "^2.0.2",
+    "nodemon": "^2.0.19",
+    "pug": "^3.0.2",
+    "socket.io": "^4.5.1",
+    "ws": "^8.8.1"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/import023/NodeJS-ZoomProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/import023/NodeJS-ZoomProject/issues"
+  },
+  "homepage": "https://github.com/import023/NodeJS-ZoomProject#readme"
+}
