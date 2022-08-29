@@ -14,6 +14,7 @@ let muted = false;
 let cameraOff = false;
 let roomName
 let myPeerConnection
+let myDataChannel
 
 //video list code
 async function getCameras() {
@@ -132,6 +133,11 @@ welcomeForm.addEventListener("submit", handleWelcomeSubmit);
 //welcome 이벤트 발생 시, offer기 생성되는 함수 -> 서버로 offer, roomName 값 emit 
 //running at peer A
 socket.on("welcome", async () => {
+    myDataChannel = myPeerConnection.createDataChannel("chat");//chat is channel's name
+    myDataChannel.addEventListener("message", (event) => {
+        console.log(event.data)
+    }));
+    console.log("made data channel");
     const offer = await myPeerConnection.createOffer()
     myPeerConnection.setLocalDescription(offer)
     console.log("sent the offer")
@@ -141,6 +147,12 @@ socket.on("welcome", async () => {
 //welcome => setRemoteDescription / peer A => peer B 
 //just it's code running at peer B
 socket.on("offer", async(offer) => {
+    myPeerConnection.addEventListener("datachannel", (event) => {
+        myDataChannel = event.channel;
+        myDataChannel.addEventListener("message", (event) => {
+            console.log(event.data)
+        }))
+    })
     console.log("recive the offer")
     myPeerConnection.setRemoteDescription(offer)
     const answer = await myPeerConnection.createAnswer()
