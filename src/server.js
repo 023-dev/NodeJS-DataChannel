@@ -26,5 +26,5 @@ wsServer.on("connection", (socket) => { //connection event 발생 시, 수행
   })
 });
 
-const handleListen = () => console.log(`Listening on http://localhost:3000`);
+const handleListen = () => console.log(`✅Listening on http://localhost:3000`);
 httpServer.listen(3000, handleListen);

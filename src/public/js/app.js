@@ -136,7 +136,7 @@ socket.on("welcome", async () => {
     myDataChannel = myPeerConnection.createDataChannel("chat");//chat is channel's name
     myDataChannel.addEventListener("message", (event) => {
         console.log(event.data)
-    }));
+    })
     console.log("made data channel");
     const offer = await myPeerConnection.createOffer()
     myPeerConnection.setLocalDescription(offer)
@@ -151,8 +151,9 @@ socket.on("offer", async(offer) => {
         myDataChannel = event.channel;
         myDataChannel.addEventListener("message", (event) => {
             console.log(event.data)
-        }))
+        })
     })
+
     console.log("recive the offer")
     myPeerConnection.setRemoteDescription(offer)
     const answer = await myPeerConnection.createAnswer()
