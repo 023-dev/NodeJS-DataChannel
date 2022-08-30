@@ -1,0 +1,15 @@
+@font-face {
+    font-family : 'Jalnan'; 
+    src : url('../font/Jalnan_font.ttf') foramt('truetype');
+}
+
+* {
+    font-family: 'Jalnan';
+}
+
+h1 {
+    font-size: 60px;
+    background: linear-gradient(to right top,  #0460e9, #09c1f8);
+    color: transparent;
+    -webkit-background-clip: text;
+}

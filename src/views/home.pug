@@ -4,12 +4,31 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Noom
+        title KIN
         link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+        link(rel="stylesheet", href="../public/css/style.css")
+        link(rel="stylesheet", href="../public/css/searchBarAnimation.scss")
     body
-        header
-            h1 KIN
+        Header
+            h1#title  KONG
         main
+            
+            <div class="search-overlay"></div>
+            <div class="scroll-cont">
+                <div class="content">
+                    <div class="search">
+                        <div class="search__bg"></div>
+                        <div class="search__box">
+                            <input type="text" class="search__input" placeholder="Search"/>
+                            <div class="search__line"></div>
+                            <div class="search__close"></div>
+                        </div>
+                    </div>
+                    <p class="desc">test</p>
+                </div>
+            </div>
+        
+
             div#welcome
                 form    
                     input(placeholder="room name", required, type="text")
@@ -23,3 +42,4 @@ html(lang="en")
                     video#peerFace(autoplay,playsinline, width="400", height="400")
         script(src="/socket.io/socket.io.js") 
         script(src="/public/js/app.js") 
+        script(src="/public/js/searchBarAnimation.js") 
