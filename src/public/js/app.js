@@ -6,16 +6,15 @@ const cameraBtn = document.getElementById("camera");
 const cameraSelect = document.getElementById("cameras")
 
 const call = document.getElementById("call")
-
+const header = document.getElementById("title")
 call.hidden = true
-
+header.hidden = false
 let myStream;
 let muted = false;
 let cameraOff = false;
 let roomName
 let myPeerConnection
 let myDataChannel
-
 //video list code
 async function getCameras() {
     try {
@@ -112,6 +111,7 @@ const welcomeForm = welcome.querySelector("form")
 async function initCall() {
     welcome.hidden = true
     call.hidden = false
+    header.hidden = true
     await getMedia()
     makeConnection()
 }

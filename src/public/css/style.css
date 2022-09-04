@@ -6,15 +6,18 @@
 * {
     font-family: 'fontYouandiModernTR';
 }
-
-/*Header*/
+:root {
+  --color: #920de9!important;
+  --color-link : #920de9!important;
+  --border-radius : 0px;
+}
 
 @import 'https://fonts.googleapis.com/css?family=Oswald';
 
 
 html, body {
-  background: #005C97;
-  background: linear-gradient(to left, #005C97 , #363795);
+  background: #fff;
+  background: linear-gradient(to left, #fff , #fff);
   height: 100%;
   width: 100%;
   display: flex;
@@ -47,3 +50,20 @@ html, body {
     y: -30px;
   }
 }
+
+#optionContainer{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    
+    
+}
+#cameras {
+    margin-bottom: 0px;
+}
+
+#peerFace{
+    margin-left: 30px;
+}
+
