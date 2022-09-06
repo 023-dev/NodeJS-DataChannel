@@ -11,6 +11,35 @@
   --color-link : #920de9!important;
   --border-radius : 0px;
 }
+form{
+  justify-content: center;
+  align-items: center;
+  text-align : center;
+}
+#EnterBtn {
+  border-radius: 15px
+}
+#mute{
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px; 
+}
+#camera {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px; 
+}
+#cameras{
+  border-radius: 30px;
+}
+
+#cameras{
+  background-color: white;
+  color: black;
+  border-color: #920de9
+}
+
+option{
+  height: auto;
+}
 
 @import 'https://fonts.googleapis.com/css?family=Oswald';
 
@@ -51,17 +80,16 @@ html, body {
   }
 }
 
-#optionContainer{
+div#buttonContainer{
     
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: center; 
-    
-    
-}
-#cameras {
     margin-bottom: 0px;
+    float: right;
 }
+ 
 
 #peerFace{
     margin-left: 30px;
