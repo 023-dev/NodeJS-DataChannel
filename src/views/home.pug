@@ -32,15 +32,22 @@ html(lang="en")
                 form    
                     input#EnterRoom(placeholder="room name", required, type="text")
                     button#EnterBtn Enter room
+
             div#call
                 div#myStream
                     video#myFace(autoplay,playsinline, width="400", height="400")
                     video#peerFace(autoplay,playsinline, width="400", height="400")
-
                     div#optionContainer
                         button#mute Mute
                         button#camera Turn Camera Off
                         select#cameras
-                    
+                    div#room
+                        h3 
+                        ul
+                        form#msg
+                            input(placeholder ="메시지를 작성하세요.", required, type = "text")
+                            button 전송
         script(src="../socket.io/socket.io.js")
         script(src="../public/js/app.js") 
+//현재 전에 만들어 놓았던 챗버전 코드를 인용해와서 테스트 중 문제점은 챗 ui랑 방 이름 ui가 출력이 안됨. roomName, addMessage 를 추가했음
+        

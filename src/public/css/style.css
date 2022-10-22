@@ -34,7 +34,11 @@ form{
 #cameras{
   background-color: white;
   color: black;
-  border-color: #920de9
+  border-color: #920de9;
+  display: inline;
+  margin-left: 1rem;
+  margin-bottom: 0rem;
+  height: 74px;
 }
 
 option{
@@ -80,10 +84,10 @@ html, body {
   }
 }
 
-div#buttonContainer{
+div#optiontainer{
     
     align-items: center;
-    display: flex;
+    display: inline;
     flex-direction: row;
     justify-content: center; 
     margin-bottom: 0px;

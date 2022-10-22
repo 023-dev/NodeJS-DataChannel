@@ -4,9 +4,10 @@ const myFace = document.getElementById("myFace");
 const muteBtn = document.getElementById("mute");
 const cameraBtn = document.getElementById("camera");
 const cameraSelect = document.getElementById("cameras")
-
 const call = document.getElementById("call")
 const header = document.getElementById("title")
+const room = document.getElementById("room")
+room.hidden = true
 call.hidden = true
 header.hidden = false
 let myStream;
@@ -15,6 +16,7 @@ let cameraOff = false;
 let roomName
 let myPeerConnection
 let myDataChannel
+//chat
 //video list code
 async function getCameras() {
     try {
@@ -109,8 +111,10 @@ const welcomeForm = welcome.querySelector("form")
 
 //방에 입장 시, getMedia 함수를 실행하고, makeConnection함수를 실행함으로 방에 유저들과 오디오 및 비디오 연결 시도(스트림)
 async function initCall() {
+    room.querySelector("h3").innerText = `${roomName}`
     welcome.hidden = true
     call.hidden = false
+    room.hidden = false
     header.hidden = true
     await getMedia()
     makeConnection()
@@ -133,9 +137,11 @@ welcomeForm.addEventListener("submit", handleWelcomeSubmit);
 //welcome 이벤트 발생 시, offer기 생성되는 함수 -> 서버로 offer, roomName 값 emit 
 //running at peer A
 socket.on("welcome", async () => {
-    myDataChannel = myPeerConnection.createDataChannel("chat");//chat is channel's name
-    myDataChannel.addEventListener("message", (event) => {
+    myDataChannel = myPeerConnection.createDataChannel("chat");//"chat" is name of channel. Create a Data Channel on myPeerConnection using by createDataChannel.
+    myDataChannel.addEventListener("message", (event) => { //Create event listener of channel
         console.log(event.data)
+        addMessage(`나 : ${event.data}`)
+    //and event data -> console log
     })
     console.log("made data channel");
     const offer = await myPeerConnection.createOffer()
@@ -206,3 +212,15 @@ function handleAddStream(data){
     const peerFace = document.getElementById("peerFace");
     peerFace.srcObject = data.stream;
 }
+
+room.querySelector("#msg button").addEventListener("click", (event)=> {
+    event.preventDefault();
+    const value = room.querySelector("#msg input").value
+    myDataChannel.send(value)
+    const ul = room.querySelector("ul")
+    const li = room.querySelector("li")
+    li.innerText = value
+    ul.appendChild(li)
+    console.log(value)
+    }
+)
